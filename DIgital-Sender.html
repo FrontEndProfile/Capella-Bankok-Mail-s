@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>|| DIGITAL-SENDER ||</title>
+  <link href="https://fonts.cdnfonts.com/css/helvetica-255" rel="stylesheet">
+  <style>
+  
+    body,
+    * {
+      font-family: 'Helvetica', sans-serif;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    ::selection {
+      background: #000000;
+      color: #FFFFFF;
+    }
+  
+    a {
+      text-decoration: none;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #000000;
+      font-weight: 400;
+    }
+  
+    p,
+    span {
+      font-weight: 400;
+      color: #E5E5E5;
+    }
+
+    table {
+      border-spacing: 0;
+    }
+    td {
+      padding: 0;
+    }
+    img {
+      border: 0;
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- MAIN TABLE -->
+  <center style="background: #E5E5E5; width: 100%; table-layout: fixed; min-height: 100vh; padding-top: 20px; padding-bottom: 33px;">
+    <table style="background: #FFFFFF; width: 640px; min-width: 640px; padding: 32px;" width="100%" cellspacing="0">
+        <!-- row  -->
+        <tr>
+          <td>
+            <!-- ------------------------------------------  -->
+            <!-- HEAD BLOCK  -->
+            <table width="100%">
+              <tr>
+                <td align="center" style="padding: 20px;">
+                  <a href="#"><img style="max-width: 116px; width:100%;" src="https://static.techsembly.com/LkEzLuwakaSmXPNC2wPyYToJ" alt="logo"></a>
+                  <h1
+                    style="font-size: 24px;font-weight: 400;line-height: 28px; text-transform: capitalize; margin-top: 24px;">
+                    Your Digital Voucher Details
+                  </h1>
+                </td>
+              </tr>
+            </table>
+            <!-- DEAR NAME BLOCK  -->
+            <table cellpadding="0" cellspacing="0" class="inline-padding block"
+              style="padding-top: 24px; padding-inline: 24px; width: 100%;">
+              <tr>
+                <td>
+                  <p
+                    style="font-size: 14px;font-weight: 400;line-height: 16px; color: #000000;margin-bottom: 20px;">
+                    Dear {{ship_address.firstname}} {{ship_address.lastname}} , </p>
+                  <p
+                    style="font-size: 14px;font-weight: 400;line-height: 16px; color: #000000;">
+                    Thank you for your purchase!<br>Your gift should be delivered to {{ship_address.firstname}} shortly! </p>
+
+                  
+                  <!-- border  -->
+                  <table width="100%">
+                    <tr>
+                      <td height="0.5px" style="background-color: #D9D9D9; margin-top: 24px;margin-bottom: 24px;display: block;"></td>
+                    </tr>
+                  </table>
+                  
+                </td>
+              </tr>
+            </table>
+            <!-- Billing-ADDRESS BLOCK  -->
+            <table cellpadding="0" cellspacing="0" class="inline-padding block"
+            style="margin-bottom: 24px; padding-inline: 24px; width: 100%;">
+            <tr>
+              <td>
+                <table width="100%" class="address">
+                  <tr>
+                    <td>
+                      <h6 style="font-weight: 400;font-size: 16px;line-height: 18px;color: #000000;margin-bottom: 12px;">
+                        Billing Address</h6>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 16px;background: #FCFCFC;border: 0.5px solid #D9D9D9;border-radius: 4px;">
+                      <h5
+                        style="font-size: 14px;font-weight: 400;line-height: 17px; color: #000000; margin-bottom: 2px;">
+                        {{bill_address.firstname}} {{bill_address.lastname}}</h5>
+                      <p
+                        style="font-size: 14px;font-weight: 400;line-height: 16px; color: #6D6D6D; margin-bottom: 0px;">
+                        
+                        {{ bill_address.address1 }},
+                        {{#if bill_address.address2}}
+                        {{ bill_address.address2 }},
+                        {{/if}}
+                        {{#if bill_address.apartment_no}}
+                        {{ bill_address.apartment_no }},
+                        {{/if}}
+                        {{#if bill_address.city}}
+                        {{ bill_address.city }},
+                        {{/if}}
+                        {{#if bill_address.state_name}}
+                        {{ bill_address.state_name }},
+                        {{/if}}
+                        {{#if bill_address_country}}
+                        {{ bill_address_country }},
+                        {{/if}}
+                        {{#if bill_address.region}}
+                        {{ bill_address.region }},
+                        {{/if}}
+                        {{#if bill_address.zipcode}}
+                        {{ bill_address.zipcode }},
+                        {{/if}}
+                        {{#if bill_address.phone}}
+                        {{ bill_address.phone }}
+                        {{/if}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+            <!-- ORDER BLOCK  -->
+            <table cellpadding="0" cellspacing="0" class="inline-padding" style="padding-inline: 24px;">
+              <tr>
+                <td>
+                  <h4
+                    style="font-size: 16px;font-weight: 400;line-height: 18px; color: #212322; margin-bottom: 16px;">
+                    Order Details</h4>
+                </td>
+              </tr>
+            </table>
+            <!-- Vendors BLOCK  -->
+            <table width="100%" style="padding-inline: 24px;" class="outer">
+              <tr>
+                <td>
+                  <!-- Vendor BLOCK  -->
+                  {{#each line_items}}
+                  <table width="100%" >
+                    <tr>
+                      <td>
+                        <table width="100%" class="vendor---">
+                          <tr>
+                            <td style="width:83px; max-width:83px; height: 100px;"><img width="100%" style="max-width: 100%;height: 100px;border-radius: 3px;overflow: hidden;object-fit: cover;" src="{{image_url}}" alt="vendor-img"></td>
+                            <td width="auto">
+                              <table style="margin-left: 29px; width: 100%;">
+                                <tr>
+                                  <td style="width: 170px;">
+                                    <h6
+                                      style="font-size: 14px;font-weight: 400;line-height: 16px; color: #374151; margin-bottom: 6px;">
+                                      {{product_name}}</h6>
+                                  </td>
+                                  <td style="margin-left: 29px; width: 100px; display: block;">
+                                    <h6
+                                      style="font-size: 12px;font-weight: 400;line-height: 14px; color: #374151; margin-bottom: 8px;  text-align: center;">
+                                      Qty:{{quantity}}</h6>
+                                      {{#each option_values}}
+                                      <p
+                                      style="font-size: 12px;font-weight: 400;line-height: 14px; color: #6B7280; margin-bottom: 8px; text-align: center;">
+                                      {{ shipment_name }}</p>
+                                      {{/each}}
+                                    
+                                  </td>
+
+                                  <td style="margin-left: auto;">
+                                    <h6
+                                    style="font-size: 14px;font-weight: 400;line-height: 16px; color: #374151; margin-bottom: 0px; ">
+                                    {{sub_total}}</h6>
+                                  </td>
+                                  
+                                </tr>
+                              </table>
+                              
+                            </td>
+                          </tr>
+                        </table>
+               
+                      <!-- Border line  -->
+                      <table width="100%">
+                        <tr>
+                          <td height="0.5px" style="background-color: #D9D9D9; margin-top: 12px ;margin-bottom: 16px ; display: block; border-bottom: 0.5px solid #D9D9D9;"></td>
+                        </tr>
+                      </table>
+                    </tr>
+
+                  </table>
+                  {{/each}}
+                </td>
+              </tr>
+            </table>
+
+            <!-- SUBTOTAL BLOCK  -->
+            <table cellpadding="0" cellspacing="0" class="inline-padding block" style="width: 100%; margin-bottom: 24px; width: 305px; margin-left: auto; padding-inline: 24px;">
+            <tr>
+              <td >
+                <table width="100%">
+                  <tr>
+                    <td>
+                      <p style="flex: 0 0 60%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263; margin-bottom: 13px;" >
+                        Send to</p>
+                    </td>
+                    <td>
+                      <p
+                      style="flex: 0 0 40%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263;text-align: start; margin-bottom: 13px;">
+                      {{recipient_email}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p style="flex: 0 0 60%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263; margin-bottom: 13px;" >
+                        Gift Card Message:</p>
+                    </td>
+                    <td>
+                      <p
+                      style="flex: 0 0 40%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263;text-align: start; margin-bottom: 13px;">
+                      {{message}}</p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p style="flex: 0 0 60%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263; margin-bottom: 13px;" >
+                        Voucher Value:</p>
+                    </td>
+                    <td>
+                      <p
+                      style="flex: 0 0 40%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263;text-align: end; margin-bottom: 13px;">
+                      {{line_item.sub_total}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p style="flex: 0 0 60%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263; margin-bottom: 13px;" >
+                        {{inclusive_tax_label}}</p>
+                    </td>
+                    <td>
+                      <p
+                      style="flex: 0 0 40%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263;text-align: end; margin-bottom: 13px;">
+                      {{inclusive_tax}}</p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <p style="flex: 0 0 60%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263; margin-bottom: 0;" >
+                        </p>
+                    </td>
+                    <td>
+                      <p
+                      style="flex: 0 0 40%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263;text-align: end; margin-bottom: 0;">
+                      $100.00</p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="100%">
+                      <!-- BORDER line  -->
+                      <table width="100%">
+                        <tr>
+                          <td height="0.5px" style="background-color: #D9D9D9; margin-top: 13px;margin-bottom: 13px; display: block;"></td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td width="100%">
+                      <!-- BORDER line  -->
+                      <table width="100%">
+                        <tr>
+                          <td height="0.5px" style="background-color: #D9D9D9; margin-top: 13px; margin-bottom: 13px; display: block;"></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>
+                      <p style="flex: 0 0 60%;font-size: 14px;font-weight: 400;line-height: 16px; color: #455263; margin-bottom: 0;" >
+                        Grand Total:</p>
+                    </td>
+                    <td>
+                      <p
+                      style="flex: 0 0 40%;font-size: 24px;font-weight: 400;line-height: 16px; color: #455263;text-align: end;">
+                      {{line_item.sub_total}}</p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+            </table>
+
+
+
+            <!-- NOTE BLOCK  -->
+            <table cellpadding="0" cellspacing="0" class="inline-padding block" style="margin-bottom: 24px;padding-inline: 24px; width: 100%;">
+              <tr>
+                <td class="footnote">
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #212322;margin-bottom: 3px;">How do I return my order?</p>
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #6D6D6D;margin-bottom: 18px;">You can return your item(s) within 7 days of purchase and 14 days for Capella. Check the return steps here.</p>  
+
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #212322;margin-bottom: 3px;">What is Capella refund policy & timelines?</p>
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #6D6D6D;margin-bottom: 18px;">Refund timelines are different for each payment method. You can check the refund policy here.</p>  
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #212322;margin-bottom: 3px;">I found the package open and seal broken. What should I do?</p>
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #6D6D6D;margin-bottom: 18px;">You are advised to not accept delivery of such orders. However, if you do receive any such package, please get in touch with us immediately via support.</p>  
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #212322;margin-bottom: 3px;">Where do I find the invoice of my order?</p>
+                  <p style="font-size: 12px;font-weight: 400;line-height: 14px; color: #6D6D6D;margin-bottom: 18px; padding-bottom: 64px;">A hard copy of the invoice should always be sent along with your order.</p>  
+                </td>
+                
+              </tr>
+              <tr>
+                <td class="footnote">
+                  <p style="font-size: 14px;font-weight: 400;line-height: 16px; color: #757575;">
+                    This is a system generated message. Please do not reply.
+                  </p>
+              </td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- BORDER line  -->
+                  <table width="100%">
+                    <tr>
+                      <td height="0.5px" style="background-color: #D9D9D9; margin-block: 24px; display: block;"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- FOOTER BLOCK  -->
+            <table cellpadding="0" cellspacing="0" class="inline-padding block" style="padding-inline: 24px; width: 100%;">
+              <tr>
+                <td>
+                  <table width="100%" style="margin: auto; margin-bottom: 16px;">
+                    <tr>
+                      <td style="width: 24px;">
+                        <a href="https://www.instagram.com/capellabangkok/" class="footer_link" style="display: block;width: 24px;height: 24px; margin-right: 12px; margin-left: auto;"><img style="width: 100%; max-width: 100%;" src="https://static.techsembly.com/2RcN1RimyrR3Z2sFCFfycveR" alt="icon"></a>
+                      </td>
+                      <td style="width: 24px;">
+                        <a href="https://www.facebook.com/CapellaBangkok/" class="footer_link" style="display: block;width: 24px;height: 24px; margin-left: 12px;"><img style="width: 100%; max-width: 100%;" src="https://static.techsembly.com/D1irTBMBet4gSXioWUYQcc2k" alt="icon"></a>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table style="margin: auto; margin-bottom: 16px;">
+                    <tr>
+                      <td>
+                        <img style="width:123.4px;" src="https://static.techsembly.com/LkEzLuwakaSmXPNC2wPyYToJ" alt="logo">
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table style="margin: auto; margin-bottom: 16px;">
+                    <tr>
+                      <td>
+                        <p class="footer_copyright"
+                          style="padding-top: 16px; font-weight: 400;font-size: 12px;line-height: 18px;text-align: center;color: #6D6D6D;">
+                          Copyright © 2021</p>
+                        <p class="footer_copyright"
+                          style="font-weight: 400;font-size: 12px;line-height: 18px;text-align: center;color: #6D6D6D;">
+                          Capella Hotel Group.<br>South of some city, Road 57, Bangkok.</p>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+
+          
+            
+           
+            
+          </td>
+        </tr>
+    </table>
+  </center>
+</body>
+
+</html>
